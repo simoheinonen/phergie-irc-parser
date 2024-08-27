@@ -11,6 +11,7 @@
 namespace Phergie\Irc\Tests;
 
 use Phergie\Irc\Parser;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for \Phergie\Irc\Parser.
@@ -18,16 +19,16 @@ use Phergie\Irc\Parser;
  * @category Phergie
  * @package Phergie\Irc
  */
-class ParserTest extends \PHPUnit_Framework_TestCase
+class ParserTest extends TestCase
 {
     /**
      * Tests parse().
      *
      * @param string $message Parameter for parse() call
      * @param array|null $result Expected return value of parse()
-     * @dataProvider dataProviderTestParse
      * @see \Phergie\Irc\Parser::parse()
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderTestParse')]
     public function testParse($message, $result)
     {
         $parser = new Parser;
@@ -39,9 +40,9 @@ class ParserTest extends \PHPUnit_Framework_TestCase
      *
      * @param string $message Parameter for parseAll() call
      * @param array|null $result Expected return value of parseAll()
-     * @dataProvider dataProviderTestParseAll
      * @see \Phergie\Irc\Parser::parseAll()
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderTestParseAll')]
     public function testParseAll($message, $result)
     {
         $parser = new Parser;
@@ -53,9 +54,9 @@ class ParserTest extends \PHPUnit_Framework_TestCase
      *
      * @param string $message Parameter for consume() call
      * @param array|null $result Expected return value of consume()
-     * @dataProvider dataProviderTestParse
      * @see \Phergie\Irc\Parser::consume()
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderTestParse')]
     public function testConsume($message, $result)
     {
         $parser = new Parser;
@@ -73,9 +74,9 @@ class ParserTest extends \PHPUnit_Framework_TestCase
      *
      * @param string $message Parameter for consumeAll() call
      * @param array|null $result Expected return value of consumeAll()
-     * @dataProvider dataProviderTestParseAll
      * @see \Phergie\Irc\Parser::consumeAll()
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderTestParseAll')]
     public function testConsumeAll($message, $result)
     {
         $parser = new Parser;
@@ -93,7 +94,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function dataProviderTestParse()
+    public static function dataProviderTestParse()
     {
         $data = [
 
@@ -3085,7 +3086,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function dataProviderTestParseAll()
+    public static function dataProviderTestParseAll()
     {
         $message1 = [
             'string' => ":Angel PRIVMSG Wiz :Hello are you receiving this message ?",

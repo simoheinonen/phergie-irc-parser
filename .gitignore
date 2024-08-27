@@ -2,7 +2,9 @@ composer.phar
 tests/composer.phar
 tests/vendor/*
 vendor/
-
+composer.lock
 /tests export-ignore
 .travis.yml export-ignore
 phpunit.xml export-ignore
+.phpunit.result.cache
+.phpunit.cache/
